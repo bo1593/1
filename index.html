@@ -3,19 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#07130f" />
+    <meta name="color-scheme" content="dark" />
     <title>afterglow</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Every run starts from here. The referrer guard in jb.js arms the chain
-         only when it was reached from this page, so that a browser restoring
-         its last session cannot re-run it unattended. -->
-    <div id="brand"><b>afterglow</b></div>
+    <!-- Original landing page structure preserved -->
+
+    <div id="brand">
+      <b>afterglow</b>
+    </div>
 
     <div class="shell">
       <img class="meme" src="meme.png" alt="" />
 
       <main class="panel">
+        <div class="panel-heading">
+          <span class="status-dot"></span>
+          <span class="eyebrow">PLAYSTATION 4</span>
+        </div>
+
         <p class="lede">PS4 firmware 12.00 &ndash; 14.02</p>
 
         <form class="pick" id="pick">
@@ -23,6 +31,7 @@
             <input type="radio" name="payload" value="hen" />
             <span>ps4-hen</span>
           </label>
+
           <label class="opt">
             <input type="radio" name="payload" value="goldhen" checked />
             <span>GoldHEN</span>
@@ -33,14 +42,19 @@
             <span>autostart</span>
           </label>
 
-          <button class="btn" type="submit">start</button>
+          <button class="btn" type="submit">
+            <span>START</span>
+            <span class="btn-arrow">→</span>
+          </button>
+
           <p class="count" id="count"></p>
           <p class="count" id="cache" aria-live="polite"></p>
         </form>
       </main>
     </div>
 
-    <p class="byline">by well0nez/m0zz</p>
+    <p class="byline">POWERED BY AFTERGLOW</p>
+
     <script src="launch.js"></script>
   </body>
 </html>
