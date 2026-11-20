@@ -1,26 +1,32 @@
-/* afterglow -- shared styling for the landing page and the run page.
 
-   The page kind sits on <html> (.landing / .run), never on <body>: jb.js owns
-   the body classes .log, .done and .fail and replaces them wholesale, so a
-   page-kind class on <body> would not survive the first state change. */
+/* =========================================
+   AFTERGLOW - PREMIUM EMERALD EDITION
+   Lightweight | Responsive | Smooth
+========================================= */
 
 :root {
-  --bg: #0b0d10;
-  --panel: #0e1116;
-  --sunk: #11151b;
-  --line: #1e2732;
+  --bg: #07110d;
+  --panel: #0c1913;
+  --panel2: #102219;
+  --sunk: #09140f;
 
-  --fg: #c8ced8;
-  --bright: #e6ebf2;
-  --dim: #7c8798;
-  --faint: #4d5765;
+  --line: #1c3829;
+  --line-light: #294a35;
 
-  --ok: #7fd0a0;
-  --bad: #d08a7f;
-  --warn: #d8c07f;
+  --fg: #dce9df;
+  --bright: #f4fff5;
+  --dim: #91a99a;
+  --faint: #536b5b;
+
+  --ok: #65d99b;
+  --gold: #d9bd79;
+  --bad: #e28b83;
+  --warn: #e5cc83;
 
   --sans: "Segoe UI", system-ui, sans-serif;
   --mono: Consolas, "DejaVu Sans Mono", monospace;
+
+  --radius: 12px;
 }
 
 * {
@@ -34,146 +40,296 @@ body {
   min-height: 100%;
   background: var(--bg);
   color: var(--fg);
-  font: 15px/1.45 var(--sans);
+  font: 15px/1.5 var(--sans);
 }
 
-/* --- the bar at the top of both pages ----------------------------------- */
+body {
+  background:
+    radial-gradient(
+      ellipse at 50% 25%,
+      rgba(30, 92, 57, .17),
+      transparent 65%
+    ),
+    var(--bg);
+}
+
+/* =========================================
+   BRAND HEADER
+========================================= */
 
 #brand {
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--line);
-  background: var(--panel);
+  position: relative;
+  z-index: 2;
+  padding: 17px 12px;
+  border-bottom: 1px solid rgba(217, 189, 121, .15);
+  background: rgba(8, 21, 14, .96);
   text-align: center;
 }
 
 #brand b {
-  color: var(--bright);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  vertical-align: middle;
+  display: inline-block;
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-shadow: 0 0 18px rgba(217, 189, 121, .15);
 }
 
-.byline {
-  position: fixed;
-  bottom: 9px;
-  left: 11px;
-  z-index: 9;
-  margin: 0;
-  color: var(--faint);
-  font: 11px/1 var(--mono);
-  letter-spacing: 0.06em;
-}
-
-/* --- landing page ------------------------------------------------------- */
+/* =========================================
+   LANDING PAGE
+========================================= */
 
 .shell {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 34px;
-  min-height: calc(100vh - 38px);
-  padding: 28px 20px 46px;
+  gap: 38px;
+
+  min-height: calc(100vh - 60px);
+  padding: 35px 20px 55px;
 }
 
 .meme {
+  display: block;
   width: 260px;
-  max-width: 44vw;
+  max-width: 42vw;
   height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, .3));
 }
 
 .panel {
-  width: 300px;
+  width: 320px;
+  max-width: 100%;
+  padding: 25px;
+
+  border: 1px solid rgba(217, 189, 121, .17);
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(17, 39, 26, .98),
+    rgba(9, 22, 15, .98)
+  );
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, .28),
+    inset 0 1px 0 rgba(255, 255, 255, .025);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 12px rgba(101, 217, 155, .55);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .2em;
 }
 
 .lede {
-  margin: 0 0 1.6em;
+  margin: 0 0 22px;
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid var(--line);
+
   color: var(--dim);
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  font-size: 12px;
+  letter-spacing: .08em;
 }
+
+/* =========================================
+   PAYLOAD OPTIONS
+========================================= */
 
 .pick {
   margin: 0;
 }
 
 .opt {
-  display: block;
-  margin-bottom: 8px;
-  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 10px;
+  padding: 14px 15px;
+
   border: 1px solid var(--line);
-  border-radius: 5px;
-  background: var(--panel);
+  border-radius: var(--radius);
+
+  background: rgba(5, 17, 11, .55);
+
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 600;
+
   cursor: pointer;
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    transform .18s ease;
 }
 
 .opt:hover {
-  border-color: #2b3a4c;
+  border-color: var(--gold);
+  background: rgba(217, 189, 121, .055);
+}
+
+.opt:active {
+  transform: scale(.99);
 }
 
 .opt input {
-  margin: 0 9px 0 0;
-  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--gold);
+  flex-shrink: 0;
 }
 
 .opt span {
-  vertical-align: middle;
+  flex: 1;
 }
 
-/* The autostart switch is a different kind of choice from the payload
-   radios, so it sits apart from them rather than looking like a third one. */
+/* =========================================
+   AUTOSTART
+========================================= */
+
 .opt-auto {
-  margin-top: 16px;
-  border-style: dashed;
-  background: none;
+  margin-top: 19px;
+  padding: 12px 14px;
+
+  border: 1px dashed #35503c;
+  background: rgba(16, 34, 25, .45);
+
   color: var(--dim);
-  font-size: 14px;
+  font-size: 13px;
 }
+
+/* =========================================
+   START BUTTON
+========================================= */
 
 .btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
   width: 100%;
-  margin-top: 16px;
-  padding: 0.8em 1.4em;
-  border: 1px solid #2f4a3c;
-  border-radius: 5px;
-  background: #16231d;
-  color: var(--ok);
-  font: 700 15px/1 var(--sans);
-  letter-spacing: 0.1em;
+  min-height: 49px;
+  margin-top: 19px;
+  padding: 13px 18px;
+
+  border: 1px solid rgba(217, 189, 121, .55);
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #183d29,
+    #10291c
+  );
+
+  color: var(--gold);
+
+  font: 800 14px/1 var(--sans);
+  letter-spacing: .18em;
+
   cursor: pointer;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .2);
+
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
 }
 
 .btn:hover,
-.btn:focus {
-  border-color: var(--ok);
+.btn:focus-visible {
+  border-color: var(--gold);
+  background: linear-gradient(135deg, #205137, #153724);
   outline: none;
 }
 
-.count {
-  margin: 12px 0 0;
-  min-height: 1.2em;
-  color: var(--ok);
-  font: 12px/1.2 var(--mono);
-  letter-spacing: 0.05em;
+.btn:active {
+  transform: scale(.98);
 }
 
-/* --- run page ----------------------------------------------------------- */
+.btn-arrow {
+  font-size: 19px;
+  line-height: 1;
+}
 
-/* Running: a spinner under the bar. jb.js switches the body to .done, .fail
-   or .log. */
+/* =========================================
+   COUNTERS AND CACHE
+========================================= */
+
+.count {
+  margin: 13px 0 0;
+  min-height: 1.2em;
+
+  color: var(--ok);
+  font: 12px/1.5 var(--mono);
+  letter-spacing: .04em;
+  overflow-wrap: anywhere;
+}
+
+#cache {
+  color: var(--gold);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.byline {
+  position: fixed;
+  bottom: 10px;
+  left: 12px;
+  z-index: 9;
+
+  margin: 0;
+
+  color: var(--faint);
+  font: 10px/1 var(--mono);
+  letter-spacing: .12em;
+  pointer-events: none;
+}
+
+/* =========================================
+   RUN PAGE
+   Original execution states preserved
+========================================= */
+
 #spin {
   position: fixed;
   top: calc(50% + 20px);
   left: 50%;
+
   width: 46px;
   height: 46px;
   margin: -23px 0 0 -23px;
-  border: 4px solid var(--line);
-  border-top-color: var(--ok);
+
+  border: 3px solid var(--line);
+  border-top-color: var(--gold);
+  border-right-color: var(--ok);
   border-radius: 50%;
-  animation: spin 0.9s linear infinite;
+
+  animation: spin .85s linear infinite;
 }
 
 @keyframes spin {
@@ -187,11 +343,15 @@ body {
   top: 50%;
   left: 0;
   right: 0;
+
   transform: translateY(-50%);
+
   display: none;
+  padding: 20px;
+
   text-align: center;
   font-size: 16px;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
 }
 
 #wrap {
@@ -210,22 +370,25 @@ body.fail #spin {
 
 body.fail #msg {
   display: block;
+  color: var(--bad);
 }
 
 body.done #msg {
   display: block;
   color: var(--ok);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
 }
 
-/* ?log=1 -- the full step log. The column is laid out with flex rather than
-   by subtracting the header height from 100vh: the log then keeps filling
-   the page whatever the strip above it ends up being. */
+/* =========================================
+   LOG PAGE
+========================================= */
+
 body.log {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  min-height: 100vh;
 }
 
 body.log #spin,
@@ -238,14 +401,17 @@ body.log #wrap {
   flex-direction: column;
   flex: 1;
   min-height: 0;
+
   padding: 14px 18px 30px;
 }
 
 body.log #state {
   display: block;
-  margin: 0 0 8px;
-  font-size: 22px;
-  font-weight: 700;
+  margin: 0 0 12px;
+
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: 800;
 }
 
 body.log #out {
@@ -253,36 +419,56 @@ body.log #out {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 10px 12px;
+
+  padding: 13px;
+
   border: 1px solid var(--line);
-  border-radius: 5px;
+  border-radius: 10px;
+
   background: var(--sunk);
-  font: 12px/1.45 var(--mono);
+
+  color: var(--fg);
+  font: 12px/1.55 var(--mono);
   white-space: pre-wrap;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-light) transparent;
 }
 
-/* The live heap readout sits in the flow under the bar. Nothing on this page
-   scrolls the document itself -- the log has its own scroll box -- so it
-   stays in view without being positioned over the wordmark. */
+/* =========================================
+   RAM STATUS
+========================================= */
+
 #ramBox {
   overflow: hidden;
-  padding: 5px 10px;
+
+  padding: 8px 12px;
+
   border-bottom: 1px solid var(--line);
+
   background: var(--sunk);
   color: var(--ok);
-  font: 11px/1.4 var(--mono);
+
+  font: 11px/1.5 var(--mono);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* The retry notice, raised by jb.js when the chain throws or stalls. */
+/* =========================================
+   NOTIFICATIONS
+========================================= */
+
 .notice {
   margin: 1em 0;
-  padding: 0.7em 1em;
-  border: 2px solid #e66;
-  background: #2a1414;
-  color: #f99;
-  font: 700 20px/1.4 var(--sans);
+  padding: 13px 15px;
+
+  border: 1px solid var(--bad);
+  border-radius: 9px;
+
+  background: rgba(70, 20, 20, .35);
+  color: #ffaaa0;
+
+  font: 700 16px/1.5 var(--sans);
 }
 
 .ok {
@@ -298,5 +484,70 @@ body.log #out {
 }
 
 code {
-  color: #9fb3d0;
+  color: var(--gold);
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  #brand {
+    padding: 15px 10px;
+  }
+
+  #brand b {
+    font-size: 16px;
+  }
+
+  .shell {
+    flex-direction: column;
+    gap: 20px;
+    min-height: calc(100vh - 50px);
+    padding: 25px 16px 55px;
+  }
+
+  .meme {
+    width: 175px;
+    max-width: 65vw;
+  }
+
+  .panel {
+    width: 100%;
+    max-width: 360px;
+    padding: 21px;
+  }
+
+  .byline {
+    font-size: 9px;
+  }
+
+  body.log #wrap {
+    padding: 12px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
