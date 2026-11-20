@@ -1,29 +1,36 @@
-/* ==========================================
-   BODA - PS4 PREMIUM EXPERIENCE
-   Original execution styling preserved
-========================================== */
+/* ==================================================
+   BODA - FULL NEON PS4 EXPERIENCE
+   CYBER BLUE | PURPLE | GREEN | NEON
+   Lightweight styling - Original functions preserved
+================================================== */
 
 :root {
-  --bg: #080d20;
-  --panel: #101a35;
-  --sunk: #080f24;
-  --line: #263d70;
+  --bg: #030611;
+  --panel: #091329;
+  --sunk: #050b19;
+  --line: #153b70;
 
-  --fg: #d8e6ff;
+  --fg: #d9f5ff;
   --bright: #ffffff;
-  --dim: #91a9d4;
-  --faint: #536b9b;
+  --dim: #83b8dc;
+  --faint: #46688f;
 
-  --ok: #45baff;
-  --bad: #ff747f;
-  --warn: #ffd16e;
+  --ok: #00ffae;
+  --bad: #ff327e;
+  --warn: #ffe45c;
 
   --blue: #087bff;
-  --cyan: #48d7ff;
+  --cyan: #00eaff;
+  --purple: #b84dff;
+  --green: #00ffae;
 
   --sans: "Segoe UI", system-ui, sans-serif;
   --mono: Consolas, "DejaVu Sans Mono", monospace;
 }
+
+/* ==================================================
+   GLOBAL
+================================================== */
 
 * {
   box-sizing: border-box;
@@ -41,20 +48,32 @@ body {
 
 body {
   background:
-    radial-gradient(ellipse at 50% 40%,
-      rgba(0, 104, 255, .18),
-      transparent 55%),
-    linear-gradient(145deg, #080d20, #0b1530 55%, #070b19);
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(0, 234, 255, .12),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 85% 75%,
+      rgba(184, 77, 255, .10),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #030611, #081329 55%, #030611);
 }
 
-/* BRAND */
+/* ==================================================
+   BRAND
+================================================== */
 
 #brand {
   position: relative;
+  z-index: 2;
   padding: 17px 10px;
-  border-bottom: 1px solid rgba(72, 215, 255, .2);
-  background: rgba(7, 13, 31, .96);
+  border-bottom: 1px solid rgba(0, 234, 255, .5);
+  background: rgba(3, 8, 22, .97);
   text-align: center;
+  box-shadow:
+    0 2px 15px rgba(0, 234, 255, .12);
 }
 
 #brand b {
@@ -63,11 +82,14 @@ body {
   font-weight: 900;
   letter-spacing: .35em;
   text-shadow:
-    0 0 10px rgba(0, 130, 255, .8),
-    0 0 28px rgba(0, 130, 255, .35);
+    0 0 5px #00eaff,
+    0 0 12px #00aaff,
+    0 0 28px #087bff;
 }
 
-/* FOOTER */
+/* ==================================================
+   FOOTER
+================================================== */
 
 .byline {
   position: fixed;
@@ -79,9 +101,12 @@ body {
   font: 10px/1 var(--mono);
   letter-spacing: .1em;
   pointer-events: none;
+  text-shadow: 0 0 8px #087bff;
 }
 
-/* LANDING */
+/* ==================================================
+   LANDING PAGE
+================================================== */
 
 .shell {
   display: flex;
@@ -97,27 +122,34 @@ body {
   width: 260px;
   max-width: 44vw;
   height: auto;
-  filter: drop-shadow(0 12px 28px rgba(0, 100, 255, .2));
+  filter:
+    drop-shadow(0 0 12px rgba(0, 234, 255, .25))
+    drop-shadow(0 0 25px rgba(8, 123, 255, .2));
 }
+
+/* ==================================================
+   MAIN PANEL
+================================================== */
 
 .panel {
   width: 320px;
   max-width: 100%;
   padding: 24px;
 
-  border: 1px solid rgba(72, 160, 255, .35);
+  border: 1px solid rgba(0, 234, 255, .55);
   border-radius: 17px;
 
   background: linear-gradient(
     145deg,
-    rgba(19, 34, 69, .97),
-    rgba(8, 17, 39, .98)
+    rgba(12, 29, 60, .97),
+    rgba(5, 11, 27, .98)
   );
 
   box-shadow:
-    0 15px 50px rgba(0, 0, 0, .35),
-    0 0 30px rgba(0, 110, 255, .08),
-    inset 0 1px 0 rgba(255,255,255,.04);
+    0 15px 45px rgba(0, 0, 0, .4),
+    0 0 12px rgba(0, 234, 255, .16),
+    0 0 30px rgba(8, 123, 255, .12),
+    inset 0 0 20px rgba(0, 234, 255, .035);
 }
 
 .panel-top {
@@ -129,20 +161,24 @@ body {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .13em;
+  text-shadow: 0 0 8px var(--cyan);
 }
 
 .live-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #45d9ff;
-  box-shadow: 0 0 12px #45d9ff;
+  background: var(--green);
+  box-shadow:
+    0 0 5px var(--green),
+    0 0 15px var(--green);
 }
 
 .version-tag {
   margin-left: auto;
-  color: var(--dim);
+  color: var(--purple);
   font-size: 9px;
+  text-shadow: 0 0 8px var(--purple);
 }
 
 .lede {
@@ -152,13 +188,16 @@ body {
   color: var(--dim);
   font-size: 11px;
   letter-spacing: .1em;
+  text-shadow: 0 0 6px rgba(0, 234, 255, .25);
 }
 
 .pick {
   margin: 0;
 }
 
-/* OPTIONS */
+/* ==================================================
+   PAYLOAD OPTIONS
+================================================== */
 
 .opt {
   display: flex;
@@ -168,10 +207,10 @@ body {
   margin-bottom: 11px;
   padding: 15px;
 
-  border: 1px solid var(--line);
+  border: 1px solid #174477;
   border-radius: 10px;
 
-  background: rgba(5, 12, 30, .65);
+  background: rgba(3, 10, 27, .85);
 
   color: var(--fg);
   font-size: 13px;
@@ -182,12 +221,16 @@ body {
 
   transition:
     border-color .18s ease,
-    background-color .18s ease;
+    background-color .18s ease,
+    box-shadow .18s ease;
 }
 
 .opt:hover {
   border-color: var(--cyan);
   background: rgba(0, 120, 255, .13);
+  box-shadow:
+    0 0 8px rgba(0, 234, 255, .25),
+    inset 0 0 12px rgba(0, 234, 255, .06);
 }
 
 .opt input {
@@ -202,18 +245,28 @@ body {
   flex: 1;
 }
 
-/* AUTOSTART */
+/* ==================================================
+   AUTOSTART
+================================================== */
 
 .opt-auto {
   margin-top: 18px;
   border-style: dashed;
-  border-color: #345080;
-  background: rgba(12, 30, 62, .4);
-  color: var(--dim);
+  border-color: var(--purple);
+  background: rgba(80, 25, 120, .12);
+  color: #d7b0ff;
   font-size: 12px;
+  box-shadow: inset 0 0 12px rgba(184, 77, 255, .05);
 }
 
-/* START */
+.opt-auto:hover {
+  border-color: var(--purple);
+  box-shadow: 0 0 12px rgba(184, 77, 255, .22);
+}
+
+/* ==================================================
+   START BUTTON
+================================================== */
 
 .btn {
   display: flex;
@@ -226,10 +279,15 @@ body {
   margin-top: 19px;
   padding: 14px;
 
-  border: 1px solid #39bfff;
+  border: 1px solid var(--cyan);
   border-radius: 10px;
 
-  background: linear-gradient(110deg, #0864db, #087bff 55%, #164fc4);
+  background: linear-gradient(
+    110deg,
+    #0648bb,
+    #087bff 50%,
+    #7135d5
+  );
 
   color: #fff;
   font: 900 15px/1 var(--sans);
@@ -238,8 +296,9 @@ body {
   cursor: pointer;
 
   box-shadow:
-    0 5px 22px rgba(0, 112, 255, .25),
-    inset 0 1px 0 rgba(255,255,255,.2);
+    0 0 8px rgba(0, 234, 255, .4),
+    0 0 20px rgba(8, 123, 255, .25),
+    inset 0 1px 0 rgba(255, 255, 255, .25);
 
   transition:
     filter .18s ease,
@@ -249,8 +308,10 @@ body {
 
 .btn:hover,
 .btn:focus {
-  filter: brightness(1.17);
-  box-shadow: 0 5px 28px rgba(0, 140, 255, .4);
+  filter: brightness(1.2);
+  box-shadow:
+    0 0 12px var(--cyan),
+    0 0 28px rgba(8, 123, 255, .5);
   outline: none;
 }
 
@@ -263,22 +324,69 @@ body {
   line-height: .7;
 }
 
-/* COUNTERS */
+/* ==================================================
+   COUNTERS
+================================================== */
 
 .count {
   margin: 13px 0 0;
   min-height: 1.2em;
-  color: var(--cyan);
+  color: var(--green);
   font: 12px/1.4 var(--mono);
   letter-spacing: .04em;
   overflow-wrap: anywhere;
+  text-shadow: 0 0 7px rgba(0, 255, 174, .45);
 }
 
 #cache {
   color: var(--warn);
+  text-shadow: 0 0 8px rgba(255, 228, 92, .4);
 }
 
-/* RUN PAGE */
+/* ==================================================
+   DEBUG PAGE - HEADINGS
+================================================== */
+
+h1,
+h2,
+h3,
+#state {
+  color: var(--cyan);
+  text-shadow:
+    0 0 5px rgba(0, 234, 255, .8),
+    0 0 15px rgba(0, 123, 255, .5);
+}
+
+/* ==================================================
+   DEBUG PAGE - INFORMATION BOXES
+================================================== */
+
+pre,
+#out {
+  background: #050b19;
+  color: #b9efff;
+  border: 1px solid #087bff;
+  border-radius: 10px;
+  box-shadow:
+    0 0 8px rgba(0, 123, 255, .25),
+    0 0 20px rgba(0, 234, 255, .08),
+    inset 0 0 15px rgba(0, 123, 255, .05);
+  text-shadow: 0 0 5px rgba(0, 234, 255, .2);
+}
+
+/* Generic debug information */
+
+#msg {
+  color: var(--cyan);
+}
+
+#wrap {
+  padding: 0;
+}
+
+/* ==================================================
+   RUN PAGE
+================================================== */
 
 #spin {
   position: fixed;
@@ -287,9 +395,15 @@ body {
   width: 46px;
   height: 46px;
   margin: -23px 0 0 -23px;
-  border: 4px solid var(--line);
+
+  border: 4px solid #15305b;
   border-top-color: var(--cyan);
+  border-right-color: var(--purple);
   border-radius: 50%;
+
+  box-shadow:
+    0 0 10px rgba(0, 234, 255, .25);
+
   animation: spin .9s linear infinite;
 }
 
@@ -311,10 +425,6 @@ body {
   letter-spacing: .5px;
 }
 
-#wrap {
-  padding: 0;
-}
-
 #state,
 #out {
   display: none;
@@ -328,16 +438,20 @@ body.fail #spin {
 body.fail #msg {
   display: block;
   color: var(--bad);
+  text-shadow: 0 0 12px var(--bad);
 }
 
 body.done #msg {
   display: block;
-  color: var(--ok);
+  color: var(--green);
   font-weight: 700;
   letter-spacing: 2px;
+  text-shadow: 0 0 12px var(--green);
 }
 
-/* LOG PAGE */
+/* ==================================================
+   LOG PAGE
+================================================== */
 
 body.log {
   display: flex;
@@ -364,6 +478,9 @@ body.log #state {
   color: var(--cyan);
   font-size: 22px;
   font-weight: 700;
+  text-shadow:
+    0 0 8px var(--cyan),
+    0 0 16px var(--blue);
 }
 
 body.log #out {
@@ -372,56 +489,75 @@ body.log #out {
   min-height: 0;
   overflow-y: auto;
   padding: 10px 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--blue);
   border-radius: 9px;
   background: var(--sunk);
   color: var(--fg);
   font: 12px/1.45 var(--mono);
   white-space: pre-wrap;
+  box-shadow: 0 0 12px rgba(0, 123, 255, .15);
 }
 
-/* RAM */
+/* ==================================================
+   RAM STATUS
+================================================== */
 
 #ramBox {
   overflow: hidden;
   padding: 7px 10px;
-  border-bottom: 1px solid var(--line);
-  background: var(--sunk);
-  color: var(--cyan);
+  border-bottom: 1px solid var(--cyan);
+  background: #050b19;
+  color: var(--green);
   font: 11px/1.4 var(--mono);
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-shadow: 0 0 8px rgba(0, 255, 174, .5);
+  box-shadow: 0 2px 12px rgba(0, 255, 174, .08);
 }
 
-/* NOTIFICATIONS */
+/* ==================================================
+   NOTIFICATIONS
+================================================== */
 
 .notice {
   margin: 1em 0;
   padding: .7em 1em;
-  border: 2px solid #e66;
+  border: 1px solid var(--bad);
   border-radius: 8px;
-  background: #2a141c;
-  color: #ff999f;
+  background: #200a19;
+  color: #ff8cb5;
   font: 700 20px/1.4 var(--sans);
+  box-shadow: 0 0 12px rgba(255, 50, 126, .2);
+  text-shadow: 0 0 7px rgba(255, 50, 126, .5);
 }
 
+/* ==================================================
+   STATUS COLORS
+================================================== */
+
 .ok {
-  color: var(--ok);
+  color: var(--green);
+  text-shadow: 0 0 8px var(--green);
 }
 
 .bad {
   color: var(--bad);
+  text-shadow: 0 0 8px var(--bad);
 }
 
 .warn {
   color: var(--warn);
+  text-shadow: 0 0 8px var(--warn);
 }
 
 code {
-  color: var(--cyan);
+  color: var(--purple);
+  text-shadow: 0 0 7px rgba(184, 77, 255, .45);
 }
 
-/* MOBILE AND TV */
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media (max-width: 600px) {
   .shell {
@@ -440,7 +576,19 @@ code {
     max-width: 360px;
     padding: 20px;
   }
+
+  #brand b {
+    font-size: 21px;
+  }
+
+  body.log #wrap {
+    padding: 12px;
+  }
 }
+
+/* ==================================================
+   TV / PS4 SCREEN
+================================================== */
 
 @media (min-width: 1000px) {
   .panel {
@@ -458,6 +606,22 @@ code {
     font-size: 17px;
   }
 }
+
+/* ==================================================
+   CONTROLLER / KEYBOARD FOCUS
+================================================== */
+
+button:focus-visible,
+input:focus-visible,
+.opt:focus-within {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  box-shadow: 0 0 12px rgba(0, 234, 255, .3);
+}
+
+/* ==================================================
+   PERFORMANCE / REDUCED MOTION
+================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
